@@ -1,4 +1,4 @@
-exports = {
+exports.data = {
     facilities: [{
         club_id        : '123456',
         club_facilities: [
@@ -64,7 +64,7 @@ exports = {
                 updated_at         : '2016-11-09T08:00:00.088Z'
             },
             {
-                rule_id            : '123rule',
+                rule_id            : '456rule',
                 rule_name          : 'rulerule2',
                 rule_description   : 'rulerulerulerule2',
                 approval           : true,
