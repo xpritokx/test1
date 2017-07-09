@@ -1,0 +1,2 @@
+require('./clubRules');
+require('./clubFacilities');
