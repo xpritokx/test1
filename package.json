@@ -1,5 +1,5 @@
 {
-  "name": "sanna_code",
+  "name": "example_node",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xpritokx/sannacode_node.git"
+    "url": "git+https://github.com/xpritokx/example_node.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xpritokx/sannacode_node/issues"
+    "url": "https://github.com/xpritokx/example_node/issues"
   },
-  "homepage": "https://github.com/xpritokx/sannacode_node#readme",
+  "homepage": "https://github.com/xpritokx/example_node#readme",
   "dependencies": {
     "async": "^2.5.0",
     "fs": "0.0.1-security",
