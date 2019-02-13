@@ -1,27 +1,85 @@
-const mongoose = require('mongoose');
-const facilitiesHandler = require('./controllers/facilities');
+var app = require('./app');
+var http = require('http');
 
-const DB_HOST = 'localhost';
-const DB_NAME = 'sanna_code';
-const DB_PORT = 27017;
+/**
+ * Get port from environment and store in Express.
+ */
 
-let db;
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
 
-//DB_HOST, DB_NAME, DB_PORT
-mongoose.connect('mongodb://' + DB_HOST + ':' + DB_PORT + '/' + DB_NAME, {
-    useMongoClient: true
-});
+/**
+ * Create HTTP server.js.
+ */
 
-db = mongoose.connection;
+var server = http.createServer(app);
 
-db.once('connected', function () {
-    console.log('connection is ok');
+/**
+ * Listen on provided port, on all network interfaces.
+ */
 
-    require('./models/index');
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 
-    facilitiesHandler.getData();
-});
+/**
+ * Normalize a port into a number, string, or false.
+ */
 
-db.on('error', function(err){
-    throw err;
-});
+function normalizePort(val) {
+    var port = parseInt(val, 10);
+
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+
+    return false;
+}
+
+/**
+ * Event listener for HTTP server.js "error" event.
+ */
+
+function onError(error) {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+
+    var bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+}
+
+/**
+ * Event listener for HTTP server.js "listening" event.
+ */
+
+function onListening() {
+    var addr = server.address();
+    var bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
+    console.log('Listening on ' + bind);
+}
+
+
