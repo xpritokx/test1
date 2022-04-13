@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/xpritokx/example_node#readme",
   "dependencies": {
-    "async": "^2.5.0",
+    "async": "^3.2.2",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.4",
